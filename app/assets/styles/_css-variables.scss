@@ -1,0 +1,40 @@
+@use "./utils/mixins" as *;
+
+// viewport
+
+:root {
+  --viewport: 1440;
+
+  @include mobile {
+    --viewport: 375;
+  }
+}
+
+// fonts
+
+:root {
+  --f-hel-reg: "HelveticaRegular";
+  --f-hel-bold: "HelveticaBold";
+  --f-can-light: "CanelaLight";
+}
+
+// transitions
+
+:root {
+  --t-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+// colors
+
+:root {
+  --c-black: #000;
+  --c-grey: #F1EFEC;
+  --c-white: #ffffff;
+}
+
+// z-index
+
+:root {
+  --z-header: 3000;
+  --z-menu: 2000;
+}

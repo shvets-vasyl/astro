@@ -1,0 +1,81 @@
+@use "./utils/mixins" as *;
+
+.title-large,
+.h1,
+.h2,
+.sub-large,
+.sub-small,
+.sub-extra-small {
+  font-family: var(--f-can-light);
+}
+
+.title-large {
+  font-size: 8.75rem;
+  line-height: 100%;
+}
+.h1 {
+  font-size: 6.375rem;
+  line-height: 90%;
+}
+.h2 {
+  font-size: 5.5rem;
+  line-height: 100%;
+}
+.h3 {
+  font-size: 4rem;
+  line-height: 100%;
+}
+.h4 {
+  font-size: 3.5rem;
+  line-height: 100%;
+}
+.h5 {
+  font-size: 2.5rem;
+  line-height: 100%;
+}
+
+.cap-large,
+.cap-medium,
+.cta-standard {
+  font-family: var(--f-hel-bold);
+}
+
+.cap-large {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+}
+.cap-medium {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  text-transform: uppercase;
+}
+.cap-small {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+}
+.body-small {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+.body-standard {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.sub-large {
+  font-size: 2rem;
+  line-height: 2.25rem;
+}
+.sub-small {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.sub-extra-small {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.cta-standard {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
