@@ -56,8 +56,24 @@ const nav = [
 ]
 
 const scrollTo = (link: string) => {
+  const header = document.querySelector("header.header") as HTMLElement | null
+  const headerHeight = header?.offsetHeight || 0
+
+  if (link === "0") {
+    gsap.to(window, {
+      scrollTo: 0,
+    })
+    return
+  }
+
+  const target = document.querySelector(link) as HTMLElement | null
+  if (!target) return
+
   gsap.to(window, {
-    scrollTo: link,
+    scrollTo: {
+      y: target,
+      offsetY: headerHeight,
+    },
   })
 }
 
@@ -89,14 +105,16 @@ onBeforeUnmount(() => {
   transition: all 0.4s ease;
 }
 .header.scrolled {
-  backdrop-filter: blur(10px);
-  //background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
+  background: var(--c-black);
 }
 .nav {
   display: flex;
   gap: 1rem;
   align-items: center;
   padding-bottom: 0.25rem;
+  @include mobile {
+    display: none;
+  }
 }
 .logo {
   display: flex;
@@ -105,5 +123,8 @@ onBeforeUnmount(() => {
 .soc-wrap {
   display: flex;
   justify-content: flex-end;
+  @include mobile {
+    display: none;
+  }
 }
 </style>

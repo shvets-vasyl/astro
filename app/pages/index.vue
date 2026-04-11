@@ -1,8 +1,15 @@
 <template>
   <main class="main-page">
     <CommonHeader />
+    <CommonMenu />
     <PageHero />
     <PageServices />
+    <PageArticles />
+    <PageAbout />
+    <PageInfo />
+    <PageProducts />
+    <PageReviews />
+    <PageContact />
   </main>
 </template>
 

@@ -32,10 +32,18 @@
   padding: 11.5rem 3.125rem 9.375rem;
   color: var(--c-white);
   overflow: hidden;
+  @include mobile {
+    padding: 9.75rem 1rem 3.125rem;
+    height: 100vh;
+  }
 }
 .subtitle {
   width: 12.5rem;
   margin-bottom: 9.9375rem;
+  @include mobile {
+    width: 100%;
+    margin-bottom: 0;
+  }
 }
 .content {
   position: relative;
@@ -43,10 +51,17 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  @include mobile {
+    justify-content: space-between;
+  }
 }
 .title-wrap {
   width: 38.75rem;
   margin-bottom: 14.6875rem;
+  @include mobile {
+    width: 100%;
+    margin-bottom: 0;
+  }
 }
 
 .name {

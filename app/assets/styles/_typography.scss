@@ -3,6 +3,9 @@
 .title-large,
 .h1,
 .h2,
+.h3,
+.h4,
+.h5,
 .sub-large,
 .sub-small,
 .sub-extra-small {
@@ -12,14 +15,24 @@
 .title-large {
   font-size: 8.75rem;
   line-height: 100%;
+  @include mobile {
+    font-size: 5rem;
+  }
 }
 .h1 {
   font-size: 6.375rem;
   line-height: 90%;
+  @include mobile {
+    font-size: 3.5rem;
+    line-height: 100%;
+  }
 }
 .h2 {
   font-size: 5.5rem;
   line-height: 100%;
+  @include mobile {
+    font-size: 3.5rem;
+  }
 }
 .h3 {
   font-size: 4rem;
@@ -28,6 +41,9 @@
 .h4 {
   font-size: 3.5rem;
   line-height: 100%;
+  @include mobile {
+    font-size: 2.5rem;
+  }
 }
 .h5 {
   font-size: 2.5rem;
@@ -36,7 +52,8 @@
 
 .cap-large,
 .cap-medium,
-.cta-standard {
+.cta-standard,
+.cap-small {
   font-family: var(--f-hel-bold);
 }
 
@@ -49,6 +66,10 @@
   font-size: 0.875rem;
   line-height: 1.375rem;
   text-transform: uppercase;
+  @include mobile {
+    font-size: 0.625rem;
+    line-height: 1.125rem;
+  }
 }
 .cap-small {
   font-size: 0.75rem;
@@ -58,6 +79,10 @@
 .body-small {
   font-size: 0.875rem;
   line-height: 1.375rem;
+  @include mobile {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
 }
 .body-standard {
   font-size: 1rem;
@@ -74,6 +99,10 @@
 .sub-extra-small {
   font-size: 1rem;
   line-height: 1.5rem;
+  @include mobile {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
 .cta-standard {
   font-size: 0.875rem;
