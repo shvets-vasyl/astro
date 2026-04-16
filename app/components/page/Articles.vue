@@ -30,34 +30,60 @@
 <script setup lang="ts">
 const items = [
   {
-    text: "Ваша улюблена закуска, згідно з вашим знаком зодіаку",
+    text: "How Mercury and Venus transits influence relationships according to your zodiac sign",
     date: "25 Липня, 2025",
     photo: "/images/img2.png",
-    link: "#",
+    link: "https://www.dailymail.co.uk/femail/article-14793429/How-Mercury-Venus-transits-influence-relationships-according-astrologer-signs-affected.html ",
   },
   {
-    text: "Як індивідуальні ритми впливають на прийняття ключових рішень.",
+    text: "Zodiac Signs With Least Sexual Compatibility",
     date: "11 Червня, 2025",
     photo: "/images/img2.png",
-    link: "#",
+    link: "https://theeverygirl.com/zodiac-signs-with-no-sexual-compatibility/",
   },
   {
-    text: "Чому ми обираємо певних людей та як будувати гармонійні зв'язки.",
+    text: "Summer Solstice 2025 Horoscopes for Every Zodiac Sign ",
     date: "25 Липня, 2025",
     photo: "/images/img2.png",
-    link: "#",
+    link: "https://nypost.com/2025/06/20/astrology/summer-solstice-2025-horoscopes-for-every-zodiac-sign/",
   },
   {
-    text: "Інструменти для тих, хто прагне керувати своєю долею самостійно.",
+    text: "How the summer solstice will affect your star sign - including a big 'change' coming",
     date: "25 Липня, 2025",
     photo: "/images/img2.png",
-    link: "#",
+    link: "https://www.hellomagazine.com/horoscopes/837983/summer-solstice-affect-star-sign-big-change-coming/ ",
   },
   {
-    text: "5 знаків зодіака з якими краще не жартувати",
+    text: "How This Weekend’s Summer Solstice Will Affect Your Zodiac Sign",
     date: "25 Липня, 2025",
     photo: "/images/img2.png",
-    link: "#",
+    link: "https://theeverygirl.com/how-summer-solstice-affects-zodiac-signs/",
+  },
+
+  {
+    text: "Are Taylor Swift And Travis Kelce Written In The Stars?",
+    date: "25 Липня, 2025",
+    photo: "/images/img2.png",
+    link: "https://theblast.com/690752/taylor-swift-travis-kelce-stars-astrologer/",
+  },
+  {
+    text: "Is Jennifer Aniston’s New Flame The Real Deal? Astrology Has An Answer",
+    date: "25 Липня, 2025",
+    photo: "/images/img2.png",
+    link: "https://theblast.com/716362/is-jennifer-anistons-new-flame-real-deal-astrology/",
+  },
+  {
+    text: "What Astrology Reveals About Katy Perry’s Fling With Justin Trudeau",
+    date: "25 Липня, 2025",
+    photo: "/images/img2.png",
+    link: "https://theblast.com/717398/what-astrology-reveals-katy-perrys-new-romance-justin-trudeau/",
+  },
+
+  {
+    text: "4 unlucky signs who should be extra cautious during this month’s lunar eclipse corridor",
+    date: "25 Липня, 2025",
+    photo: "/images/img2.png",
+    link: "https://nypost.com/2025/09/07/astrology/4-signs-with-the-most-to-lose-during-septembers-lunar-eclipse-corridor/",
   },
 ]
 </script>

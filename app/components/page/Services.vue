@@ -51,7 +51,7 @@
           </div>
 
           <div class="tab-foot">
-            <a class="tab-btn" href="#" target="_blank">
+            <a class="tab-btn" href="https://t.me/chipolinaa" target="_blank">
               <CommonButton text="Обрати послугу" />
             </a>
 

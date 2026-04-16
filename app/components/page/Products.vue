@@ -10,7 +10,7 @@
 
         <h5 class="item-name h5">{{ name }}</h5>
         <p class="item-price cap-large">{{ price }}</p>
-        <a class="item-link" href="#" target="_blank">
+        <a class="item-link" href="https://t.me/chipolinaa" target="_blank">
           <CommonButton text="Купити" border />
         </a>
       </div>
