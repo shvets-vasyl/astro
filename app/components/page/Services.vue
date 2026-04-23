@@ -4,65 +4,63 @@
     <div class="titles">
       <h2 class="h2 title1">Натальна карта</h2>
       <h2 class="h2 title2">Прогностика</h2>
+    </div>
 
-      <div class="content">
-        <p class="descr body-standard">
-          Ви дізнаєтесь про свої сильні сторони, про які, можливо, лише
-          здогадувалися, і зрозумієте, як їх використовувати на повну.
-        </p>
+    <div class="content">
+      <p class="descr body-standard">
+        Ви дізнаєтесь про свої сильні сторони, про які, можливо, лише
+        здогадувалися, і зрозумієте, як їх використовувати на повну.
+      </p>
 
-        <div class="block">
-          <div class="tab-titles">
-            <h5
-              v-for="({ name }, i) in items"
+      <div class="block">
+        <div class="tab-titles">
+          <h5
+            v-for="({ name }, i) in items"
+            :key="i"
+            class="tab-title h5"
+            :class="{ active: activeTab === i }"
+            @click="activeTab = i"
+          >
+            {{ name }}
+          </h5>
+        </div>
+
+        <p class="tab-subtitle cap-large">{{ items[activeTab]?.subtitle }}</p>
+        <p class="tab-descr body-small">{{ items[activeTab]?.descr }}</p>
+
+        <p class="tab-list-title cap-medium">У розборі:</p>
+
+        <div class="tab-list">
+          <div class="tab-col">
+            <p
+              v-for="(text, i) in items[activeTab]?.list.slice(0, 4)"
               :key="i"
-              class="tab-title h5"
-              :class="{ active: activeTab === i }"
-              @click="activeTab = i"
+              class="tab-list-text body-standard"
             >
-              {{ name }}
-            </h5>
-          </div>
-
-          <p class="tab-subtitle cap-large">{{ items[activeTab]?.subtitle }}</p>
-          <p class="tab-descr body-small">{{ items[activeTab]?.descr }}</p>
-
-          <p class="tab-list-title cap-medium">У розборі:</p>
-
-          <div class="tab-list">
-            <div class="tab-col">
-              <p
-                v-for="(text, i) in items[activeTab]?.list.slice(0, 4)"
-                :key="i"
-                class="tab-list-text body-standard"
-              >
-                {{ text }}
-              </p>
-            </div>
-            <div class="tab-col">
-              <p
-                v-for="(text, i) in items[activeTab]?.list.slice(4)"
-                :key="i"
-                class="tab-list-text body-standard"
-              >
-                {{ text }}
-              </p>
-            </div>
-          </div>
-
-          <div class="tab-foot">
-            <a class="tab-btn" href="https://t.me/chipolinaa" target="_blank">
-              <CommonButton text="Обрати послугу" />
-            </a>
-
-            <p class="tab-price sub-large">
-              {{ items[activeTab]?.price }} грн.
-            </p>
-
-            <p class="tab-pdf-text body-small">
-              Текстовий PDF або голосовий розбір
+              {{ text }}
             </p>
           </div>
+          <div class="tab-col">
+            <p
+              v-for="(text, i) in items[activeTab]?.list.slice(4)"
+              :key="i"
+              class="tab-list-text body-standard"
+            >
+              {{ text }}
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-foot">
+          <a class="tab-btn" href="https://t.me/chipolinaa" target="_blank">
+            <CommonButton text="Обрати послугу" />
+          </a>
+
+          <p class="tab-price sub-large">{{ items[activeTab]?.price }} грн.</p>
+
+          <p class="tab-pdf-text body-small">
+            Текстовий PDF або голосовий розбір
+          </p>
         </div>
       </div>
     </div>
@@ -139,18 +137,41 @@ const activeTab = ref(0)
 <style scoped lang="scss">
 .titles {
   position: relative;
+  @include mobile {
+    margin-bottom: 1.5rem;
+  }
 }
 .leaves-img {
   width: 48.25rem;
   position: absolute;
   top: 0;
   left: 0;
+  @include mobile {
+    width: 100%;
+  }
 }
 .title1 {
   margin-bottom: 1.5rem;
+  @include mobile {
+    margin-bottom: 0.625rem;
+  }
 }
 .title2 {
   opacity: 0.35;
+}
+.title1,
+.title2 {
+  @include mobile {
+    font-size: 3rem;
+  }
+}
+.descr {
+  @include mobile {
+    order: 2;
+    width: 91%;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
 }
 .content {
   position: relative;
@@ -159,21 +180,51 @@ const activeTab = ref(0)
   gap: 7.125rem;
   align-items: flex-end;
   margin-top: -1.5rem;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 0;
+    align-items: flex-start;
+  }
 }
 .block {
   border-radius: 0.5rem;
   background: var(--c-white);
   padding: 1.5rem;
+  @include mobile {
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
 }
 .tab-titles {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+  @include mobile {
+    overflow-x: auto;
+    margin-left: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: calc(100% + 2rem);
+    gap: 0.75rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+  }
+}
+.tab-titles::-webkit-scrollbar {
+  display: none;
 }
 .tab-title {
   cursor: pointer;
   opacity: 0.35;
   transition: all 0.4s ease;
+  @include mobile {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 .tab-title.active {
   opacity: 1;
@@ -185,27 +236,53 @@ const activeTab = ref(0)
 }
 .tab-subtitle {
   margin-bottom: 0.5rem;
+  @include mobile {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    width: 80%;
+    margin-bottom: 0.5rem;
+  }
 }
 .tab-descr {
   margin-bottom: 2.5rem;
+  @include mobile {
+    margin-bottom: 1.5rem;
+  }
 }
 .tab-list-title {
   margin-bottom: 1rem;
+  @include mobile {
+    font-size: 0.75rem;
+  }
 }
 .tab-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin-bottom: 2.5rem;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
 }
 .tab-col {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  @include mobile {
+    gap: 0.75rem;
+  }
 }
 .tab-list-text {
   position: relative;
   padding-left: 1.25rem;
+  @include mobile {
+    font-size: 0.875rem;
+    line-height: 1.375rem; /* 157.143% */
+    letter-spacing: -0.0131rem;
+  }
 }
 .tab-list-text:after {
   content: "";
@@ -217,19 +294,41 @@ const activeTab = ref(0)
   height: 0.5rem;
   border-radius: 100%;
   background: var(--c-black);
+  @include mobile {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
 }
 .tab-btn {
   display: inline-flex;
+  @include mobile {
+    order: 2;
+  }
 }
 .tab-foot {
   display: flex;
   align-items: center;
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 .tab-price {
   margin-left: 1.5rem;
+  @include mobile {
+    order: 1;
+    margin-left: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
 }
 .tab-pdf-text {
   color: #5c5c5c;
   margin-left: auto;
+  @include mobile {
+    order: 3;
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
 }
 </style>

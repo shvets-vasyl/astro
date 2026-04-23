@@ -8,6 +8,8 @@
           <img draggable="false" :src="photo" />
         </div>
 
+        <IconCircles6 class="item-circles" />
+
         <h5 class="item-name h5">{{ name }}</h5>
         <p class="item-price cap-large">{{ price }}</p>
         <a class="item-link" href="https://t.me/chipolinaa" target="_blank">
@@ -37,11 +39,21 @@ const items = [
 .title {
   margin-bottom: 3.5rem;
   text-align: center;
+  @include mobile {
+    font-size: 3rem;
+    line-height: 100%;
+    margin-bottom: 1.5rem;
+  }
 }
 .items {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 .item {
   border-radius: 0.5rem;
@@ -52,10 +64,20 @@ const items = [
   flex-direction: column;
   align-items: center;
   text-align: center;
+  @include mobile {
+    padding: 2rem;
+    position: relative;
+  }
 }
 .item-photo {
   width: 13.9375rem;
   margin-bottom: 3.125rem;
+  @include mobile {
+    width: 7.25rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
 }
 .item-photo img {
   width: 100%;
@@ -63,6 +85,9 @@ const items = [
 .item-name {
   width: 50%;
   margin-bottom: 1rem;
+  @include mobile {
+    margin-bottom: 0.5rem;
+  }
 }
 .item-price {
   margin-bottom: 1.5rem;
@@ -72,5 +97,22 @@ const items = [
 }
 .item-link:deep(.btn-template) {
   padding: 0 4rem;
+}
+.item-circles {
+  display: none;
+  @include mobile {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+}
+.item-name {
+  @include mobile {
+    width: 100%;
+    font-size: 2rem;
+  }
 }
 </style>

@@ -41,7 +41,7 @@
   width: 12.5rem;
   margin-bottom: 9.9375rem;
   @include mobile {
-    width: 100%;
+    width: 10.5rem;
     margin-bottom: 0;
   }
 }
@@ -53,6 +53,7 @@
   text-align: center;
   @include mobile {
     justify-content: space-between;
+    height: 100%;
   }
 }
 .title-wrap {
@@ -68,9 +69,17 @@
   text-align: right;
   margin-right: 5rem;
   margin-top: -0.4rem;
+  @include mobile {
+    margin-right: 2.5rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
 }
 .title-wrap2 {
   position: relative;
+  @include mobile {
+    text-align: left;
+  }
 }
 .descr {
   width: 10.0625rem;
@@ -78,11 +87,19 @@
   position: absolute;
   top: 2.6rem;
   left: -3rem;
+  @include mobile {
+    text-align: left;
+    top: 0.75rem;
+    left: 50%;
+  }
 }
 .circles {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 3rem;
+  @include mobile {
+    display: none;
+  }
 }
 </style>

@@ -54,23 +54,42 @@
   flex-direction: column;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  @include mobile {
+    padding: 1rem;
+  }
 }
+
 .head {
   position: relative;
   display: grid;
   grid-template-columns: 19.8125rem 1fr;
   gap: 1.5rem;
   width: 100%;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
 }
 .title {
   text-indent: 12.25rem;
   padding-right: 5rem;
+  @include mobile {
+    text-indent: 0;
+    padding-right: 0;
+    text-align: center;
+    font-size: 2rem;
+  }
 }
 .circles {
   position: absolute;
   top: -10rem;
   left: 50%;
   transform: translateX(-50%);
+  @include mobile {
+    display: none;
+  }
 }
 .body {
   position: relative;
@@ -85,6 +104,16 @@
 }
 .email {
   position: relative;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.email-link {
+  @include mobile {
+    font-size: 2.25rem;
+    order: 2;
+  }
 }
 .email-text {
   position: absolute;
@@ -92,6 +121,14 @@
   bottom: 0.25rem;
   margin-left: 1rem;
   white-space: nowrap;
+  @include mobile {
+    left: 0;
+    position: relative;
+    bottom: 0;
+    margin-left: 0;
+    order: 1;
+    margin-bottom: 0.5rem;
+  }
 }
 .foot {
   display: flex;
@@ -99,10 +136,23 @@
   justify-content: space-between;
   margin-top: 3.5rem;
   position: relative;
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+.soc-wrap {
+  @include mobile {
+    display: none;
+  }
 }
 .docs {
   display: flex;
   gap: 1.5rem;
+  @include mobile {
+    gap: 1rem;
+  }
 }
 .docs a {
   text-decoration-line: underline;
@@ -115,6 +165,11 @@
 @include hover {
   .docs a:hover {
     text-decoration: none;
+  }
+}
+.copy {
+  @include mobile {
+    order: 2;
   }
 }
 </style>

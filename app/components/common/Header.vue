@@ -27,6 +27,10 @@
     <div class="soc-wrap">
       <CommonSocials />
     </div>
+
+    <button class="burger" @click="toggleMenu">
+      <IconBurger />
+    </button>
   </header>
 </template>
 
@@ -35,6 +39,41 @@ const headerState = useState<{
   isMenuOpen: boolean
   isScrolled: boolean
 }>("header-state")
+
+const toggleMenu = () => {
+  if (headerState.value.isMenuOpen) {
+    headerState.value.isMenuOpen = false
+    useLockScroll(false)
+
+    const tl = gsap.timeline()
+    tl.to("menu.menu .content", {
+      scale: 0.95,
+      opacity: 0,
+    })
+    tl.set("menu.menu", {
+      display: "none",
+    })
+  } else {
+    headerState.value.isMenuOpen = true
+    useLockScroll(true)
+
+    const tl = gsap.timeline()
+    tl.set("menu.menu", {
+      display: "flex",
+    })
+    tl.fromTo(
+      "menu.menu .content",
+      {
+        scale: 0.95,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+      }
+    )
+  }
+}
 
 const nav = [
   {
@@ -103,9 +142,25 @@ onBeforeUnmount(() => {
   padding: 1.5rem 3.125rem;
   color: var(--c-white);
   transition: all 0.4s ease;
+  @include mobile {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
+
+.header .logo:deep(path),
+.header .burger:deep(path),
+.header .burger:deep(rect) {
+  transition: all 0.4s ease;
+}
+
 .header.scrolled {
   background: var(--c-black);
+}
+.header.scrolled.open {
+  background: transparent;
 }
 .nav {
   display: flex;
@@ -126,5 +181,33 @@ onBeforeUnmount(() => {
   @include mobile {
     display: none;
   }
+}
+.burger {
+  display: none;
+  @include mobile {
+    display: inline-flex;
+  }
+}
+.header .burger:deep(path) {
+  transform-origin: center center;
+}
+// open
+.header.open {
+  padding: 1rem 1rem 1.5rem 1.5rem;
+}
+.header.open .logo:deep(path) {
+  fill: var(--c-black);
+}
+.header.open .burger:deep(path) {
+  stroke: var(--c-black);
+}
+.header.open .burger:deep(rect) {
+  opacity: 0;
+}
+.header.open .burger:deep(.path1) {
+  transform: rotate(45deg) translateY(4px);
+}
+.header.open .burger:deep(.path2) {
+  transform: rotate(-45deg) translateY(-4px);
 }
 </style>

@@ -31,6 +31,9 @@
   left: 50%;
   transform: translateX(-50%);
   top: 0;
+  @include mobile {
+    display: none;
+  }
 }
 .content {
   height: 100%;
@@ -44,12 +47,26 @@
 .title {
   margin-bottom: 1.5rem;
   width: 70rem;
+  @include mobile {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    line-height: 100%;
+  }
 }
 .descr {
   width: 26.875rem;
+  @include mobile {
+    width: 14.75rem;
+  }
 }
 .descr2 {
   width: 26.875rem;
   margin-top: auto;
+  @include mobile {
+    width: 14.75rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
 }
 </style>

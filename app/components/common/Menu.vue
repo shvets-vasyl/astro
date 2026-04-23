@@ -25,6 +25,11 @@
 </template>
 
 <script setup lang="ts">
+const headerState = useState<{
+  isMenuOpen: boolean
+  isScrolled: boolean
+}>("header-state")
+
 const nav = [
   {
     name: "Послуги",
@@ -43,6 +48,8 @@ const nav = [
     link: "section.reviews",
   },
 ]
+
+const { isMobile } = useViewport()
 
 const scrollTo = (link: string) => {
   const header = document.querySelector("header.header") as HTMLElement | null
@@ -64,6 +71,20 @@ const scrollTo = (link: string) => {
       offsetY: headerHeight,
     },
   })
+
+  if (isMobile.value && headerState.value.isMenuOpen) {
+    headerState.value.isMenuOpen = false
+    useLockScroll(false)
+
+    const tl = gsap.timeline()
+    tl.to("menu.menu .content", {
+      scale: 0.95,
+      opacity: 0,
+    })
+    tl.set("menu.menu", {
+      display: "none",
+    })
+  }
 }
 </script>
 
@@ -94,6 +115,7 @@ const scrollTo = (link: string) => {
   padding: 2.5rem 1rem 1rem;
   align-items: center;
   text-align: center;
+  overflow: hidden;
 }
 .nav {
   margin: auto 0;
@@ -115,5 +137,6 @@ const scrollTo = (link: string) => {
   position: absolute;
   left: 0;
   top: 0;
+  pointer-events: none;
 }
 </style>

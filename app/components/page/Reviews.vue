@@ -45,7 +45,7 @@ const initSwiper = () => {
     grabCursor: true,
     breakpoints: {
       0: {
-        slidesPerView: 1.25,
+        slidesPerView: 1.15,
       },
       1024: {
         slidesPerView: 3,
@@ -97,11 +97,25 @@ const items = [
 </script>
 
 <style scoped lang="scss">
+.reviews {
+  @include mobile {
+    overflow: hidden;
+  }
+}
 .head {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 3.5rem;
+  @include mobile {
+    margin-bottom: 2.5rem;
+    width: 100%;
+  }
+}
+.title {
+  @include mobile {
+    font-size: 2.8rem;
+  }
 }
 .reviews-swiper {
   width: calc(100% + 6.25rem);

@@ -75,6 +75,10 @@
   font-size: 0.75rem;
   line-height: 1.25rem;
   text-transform: uppercase;
+  @include mobile {
+    font-size: 0.625rem;
+    line-height: 1.125rem;
+  }
 }
 .body-small {
   font-size: 0.875rem;

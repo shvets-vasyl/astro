@@ -89,6 +89,14 @@ const items = [
 </script>
 
 <style scoped lang="scss">
+.articles {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+  }
+}
 .title {
   text-align: center;
   color: transparent;
@@ -98,6 +106,10 @@ const items = [
   font-size: 13.75rem;
   line-height: 100%;
   mask-image: linear-gradient(to top, transparent 0%, #000 80%, #000 100%);
+  @include mobile {
+    font-size: 6.375rem;
+    -webkit-text-stroke-width: 0.0625rem;
+  }
 }
 .items {
   display: flex;
@@ -112,19 +124,37 @@ const items = [
   justify-content: space-between;
   width: 100%;
   text-align: center;
+  @include mobile {
+    display: flex;
+    padding: 0.75rem 0;
+  }
 }
 .item-name {
   opacity: 0.5;
   transition: all 0.4s ease;
+  @include mobile {
+    opacity: 1;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.75rem;
+    order: 2;
+  }
 }
 .item-photo {
   position: relative;
   height: 6rem;
   opacity: 0;
   transition: all 0.4s ease;
+  @include mobile {
+    display: none;
+  }
 }
 .col {
   position: relative;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .item-date {
   position: absolute;
@@ -132,11 +162,21 @@ const items = [
   left: 100%;
   margin-left: 0.5rem;
   white-space: nowrap;
+  @include mobile {
+    position: relative;
+    left: 0;
+    margin-left: 0;
+    text-align: center;
+    order: 1;
+  }
 }
 .item-more {
   transition: all 0.4s ease;
   text-align: right;
   opacity: 0;
+  @include mobile {
+    display: none;
+  }
 }
 @include hover {
   .item:hover .item-more,

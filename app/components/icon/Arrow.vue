@@ -17,5 +17,8 @@
 <style scoped lang="scss">
 .icon {
   width: 3.5rem;
+  @include mobile {
+    width: 2.75rem;
+  }
 }
 </style>

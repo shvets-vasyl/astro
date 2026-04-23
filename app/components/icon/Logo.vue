@@ -33,5 +33,8 @@
 <style scoped lang="scss">
 .icon {
   width: 7rem;
+  @include mobile {
+    width: 4.1875rem;
+  }
 }
 </style>

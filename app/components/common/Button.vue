@@ -24,6 +24,9 @@ defineProps<{
   align-items: center;
   justify-content: center;
   transition: all 0.4s ease;
+  @include mobile {
+    width: 100%;
+  }
 }
 .btn-template.border {
   background: none;

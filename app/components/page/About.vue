@@ -47,25 +47,60 @@
   display: grid;
   grid-template-columns: 19.8125rem 1fr;
   gap: 1.5rem;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
-
+.title {
+  @include mobile {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
 .text {
   text-indent: 15.125rem;
   padding-right: 5.25rem;
+  @include mobile {
+    text-indent: 0;
+    padding-right: 0;
+    font-size: 2rem;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
 }
 .body {
   display: grid;
   grid-template-columns: 26.9375rem 41.125rem;
   justify-content: space-between;
   align-items: flex-end;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+  }
 }
 .descr {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  @include mobile {
+    order: 2;
+    font-size: 0.875rem;
+    letter-spacing: -0.21px;
+  }
 }
 .photo {
   position: relative;
   height: 49.375rem;
+  @include mobile {
+    height: 26.875rem;
+    width: 100%;
+    order: 1;
+    margin-bottom: 1.5rem;
+  }
 }
 </style>
