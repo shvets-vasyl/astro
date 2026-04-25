@@ -3,6 +3,7 @@
     <img class="inner-media" draggable="false" src="/images/img1.png" />
 
     <IconCircles2 class="circles" />
+    <IconCirclesMob2 class="circles-mob" />
 
     <div class="content">
       <h2 class="title h2">Усвідомлення ваших справжніх можливостей</h2>
@@ -31,8 +32,20 @@
   left: 50%;
   transform: translateX(-50%);
   top: 0;
+  pointer-events: none;
   @include mobile {
     display: none;
+  }
+}
+.circles-mob {
+  display: none;
+  pointer-events: none;
+  @include mobile {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
 }
 .content {

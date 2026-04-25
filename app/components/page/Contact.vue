@@ -2,6 +2,7 @@
   <section class="contact sect">
     <img class="inner-media" draggable="false" src="/images/footer.png" />
     <IconCircles4 class="circles" />
+    <IconCirclesMob3 class="circles-mob" />
 
     <div class="head">
       <p class="descr cap-small">це твій час для змін</p>
@@ -18,8 +19,11 @@
       </div>
 
       <div class="email">
-        <a class="email-link h4 hover-fade" href="mailto:polinastro@gmail.com">
-          polinastro@gmail.com
+        <a
+          class="email-link h4 hover-fade"
+          href="mailto:astro.paulinearuty@gmail.com"
+        >
+          astro.paulinearuty@gmail.com
         </a>
         <p class="email-text body-standard">E-mail</p>
       </div>
@@ -35,8 +39,12 @@
       </p>
 
       <div class="docs">
-        <a class="cta-standard" href="#" target="_blank">Terms of use</a>
-        <a class="cta-standard" href="#" target="_blank">Privacy Policy</a>
+        <a class="cta-standard" href="/files/terms-of-use.pdf" target="_blank"
+          >Terms of use</a
+        >
+        <a class="cta-standard" href="/files/privacy-policy.pdf" target="_blank"
+          >Privacy Policy</a
+        >
       </div>
     </div>
   </section>
@@ -87,6 +95,7 @@
   top: -10rem;
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: none;
   @include mobile {
     display: none;
   }
@@ -111,7 +120,7 @@
 }
 .email-link {
   @include mobile {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     order: 2;
   }
 }
@@ -170,6 +179,18 @@
 .copy {
   @include mobile {
     order: 2;
+  }
+}
+.circles-mob {
+  display: none;
+  pointer-events: none;
+  @include mobile {
+    position: absolute;
+    display: block;
+    width: 69.3125rem;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 </style>

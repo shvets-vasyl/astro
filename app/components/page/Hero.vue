@@ -5,6 +5,9 @@
     <div class="circles">
       <IconCircles />
     </div>
+    <div class="circles-mob">
+      <IconCirclesMob />
+    </div>
 
     <div class="content">
       <p class="subtitle cap-small">
@@ -98,8 +101,20 @@
   left: 50%;
   transform: translateX(-50%);
   top: 3rem;
+  pointer-events: none;
   @include mobile {
     display: none;
+  }
+}
+.circles-mob {
+  display: none;
+  pointer-events: none;
+  @include mobile {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    top: -2rem;
   }
 }
 </style>
