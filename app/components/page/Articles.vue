@@ -12,7 +12,7 @@
       >
         <div class="col">
           <div class="item-photo">
-            <img class="inner-media" draggable="false" :src="photo" />
+            <!-- <img class="inner-media" draggable="false" :src="photo" /> -->
           </div>
         </div>
         <div class="col">

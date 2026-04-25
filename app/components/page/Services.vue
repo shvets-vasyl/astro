@@ -19,7 +19,7 @@
             :key="i"
             class="tab-title h5"
             :class="{ active: activeTab === i }"
-            @click="activeTab = i"
+            @click="setTab(i)"
           >
             {{ name }}
           </h5>
@@ -132,6 +132,36 @@ const items = [
 ]
 
 const activeTab = ref(0)
+const { isDesktop } = useViewport()
+
+const setTab = (i: number) => {
+  activeTab.value = i
+
+  if (isDesktop.value) return
+
+  nextTick(() => {
+    const titlesWrap = document.querySelector(
+      "section.services .tab-titles"
+    ) as HTMLElement | null
+
+    const titles = document.querySelectorAll(
+      "section.services .tab-title"
+    ) as NodeListOf<HTMLElement>
+
+    const currentTitle = titles[i]
+
+    if (!titlesWrap || !currentTitle) return
+
+    titlesWrap.scrollTo({
+      left:
+        currentTitle.offsetLeft -
+        titlesWrap.offsetLeft -
+        titlesWrap.clientWidth / 2 +
+        currentTitle.clientWidth / 2,
+      behavior: "smooth",
+    })
+  })
+}
 </script>
 
 <style scoped lang="scss">
@@ -212,6 +242,9 @@ const activeTab = ref(0)
     gap: 0.75rem;
     margin-bottom: 0;
     padding-bottom: 1rem;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 .tab-titles::-webkit-scrollbar {
