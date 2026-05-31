@@ -6,10 +6,11 @@
     <IconCirclesMob2 class="circles-mob" />
 
     <div class="content">
-      <h2 class="title h2">Усвідомлення ваших справжніх можливостей</h2>
+      <h2 class="title h2">
+        Non temere, sed ratione caelestia consideranda sunt.
+      </h2>
       <p class="descr body-small">
-        Ми розглянемо основи астрології, поради щодо стосунків, кармічну долю та
-        отримаєте відповіді на ваші питання.
+        «Небесне слід розглядати не навмання, а через розуміння й порядок.»
       </p>
       <p class="descr2 cap-medium">
         Понад 500+ проведених консультацій та сотні клієнтів, які нарешті
