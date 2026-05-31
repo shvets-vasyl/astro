@@ -15,14 +15,14 @@
       </p>
 
       <div class="title-wrap">
-        <div class="title title-large">Astrology Spirituality</div>
+        <div class="title title-large">Читаємо символічну мову вашої карти</div>
         <p class="name body-standard">Polina Arutiunian</p>
       </div>
 
-      <div class="title-wrap2">
+      <!-- <div class="title-wrap2">
         <h1 class="title2 h1">Крок <br />до гармонії</h1>
         <p class="descr body-small">Глибокий аналіз вашого життєвого шляху</p>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
@@ -60,14 +60,19 @@
   }
 }
 .title-wrap {
-  width: 38.75rem;
+  width: 80rem;
   margin-bottom: 14.6875rem;
   @include mobile {
     width: 100%;
+
     margin-bottom: 0;
   }
 }
-
+.title {
+  @include mobile {
+    font-size: 3rem;
+  }
+}
 .name {
   text-align: right;
   margin-right: 5rem;

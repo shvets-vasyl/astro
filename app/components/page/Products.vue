@@ -1,6 +1,6 @@
 <template>
   <section class="products sect">
-    <h2 class="h2 title">Публікації</h2>
+    <h2 class="h2 title">Продукти</h2>
 
     <div class="items">
       <div v-for="({ photo, name, price }, i) in items" :key="i" class="item">
