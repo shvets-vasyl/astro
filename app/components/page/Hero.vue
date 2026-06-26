@@ -64,6 +64,10 @@
   margin-bottom: 14.6875rem;
   @include mobile {
     width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
 
     margin-bottom: 0;
   }
@@ -81,6 +85,7 @@
     margin-right: 2.5rem;
     font-size: 0.75rem;
     line-height: 1.25rem;
+    margin-top: 0.5rem;
   }
 }
 .title-wrap2 {

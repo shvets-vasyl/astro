@@ -2,8 +2,24 @@
   <section class="services sect">
     <img class="leaves-img" draggable="false" src="/images/leaves.png" />
     <div class="titles">
-      <h2 class="h2 title1">Натальна карта</h2>
-      <h2 class="h2 title2">Прогностика</h2>
+      <h2 class="h2 title1">
+        <button
+          class="main-tab"
+          :class="{ active: activeMainTab === 0 }"
+          @click="setMainTab(0)"
+        >
+          Натальна карта
+        </button>
+      </h2>
+      <h2 class="h2 title2">
+        <button
+          class="main-tab"
+          :class="{ active: activeMainTab === 1 }"
+          @click="setMainTab(1)"
+        >
+          Прогностика
+        </button>
+      </h2>
     </div>
 
     <div class="content">
@@ -15,7 +31,7 @@
       <div class="block">
         <div class="tab-titles">
           <h5
-            v-for="({ name }, i) in items"
+            v-for="({ name }, i) in currentItems"
             :key="i"
             class="tab-title h5"
             :class="{ active: activeTab === i }"
@@ -25,15 +41,17 @@
           </h5>
         </div>
 
-        <p class="tab-subtitle cap-large">{{ items[activeTab]?.subtitle }}</p>
-        <p class="tab-descr body-small">{{ items[activeTab]?.descr }}</p>
+        <p class="tab-subtitle cap-large">
+          {{ currentItems[activeTab]?.subtitle }}
+        </p>
+        <p class="tab-descr body-small">{{ currentItems[activeTab]?.descr }}</p>
 
         <p class="tab-list-title cap-medium">У розборі:</p>
 
         <div class="tab-list">
           <div class="tab-col">
             <p
-              v-for="(text, i) in items[activeTab]?.list.slice(0, 4)"
+              v-for="(text, i) in currentItems[activeTab]?.list.slice(0, 4)"
               :key="i"
               class="tab-list-text body-standard"
             >
@@ -42,7 +60,7 @@
           </div>
           <div class="tab-col">
             <p
-              v-for="(text, i) in items[activeTab]?.list.slice(4)"
+              v-for="(text, i) in currentItems[activeTab]?.list.slice(4)"
               :key="i"
               class="tab-list-text body-standard"
             >
@@ -56,10 +74,12 @@
             <CommonButton text="Обрати послугу" />
           </a>
 
-          <p class="tab-price sub-large">{{ items[activeTab]?.price }} грн.</p>
+          <p class="tab-price sub-large">
+            {{ currentItems[activeTab]?.price }} грн.
+          </p>
 
           <p class="tab-pdf-text body-small">
-            Текстовий PDF або голосовий розбір
+            {{ currentItems[activeTab]?.details }}
           </p>
         </div>
       </div>
@@ -84,6 +104,7 @@ const items = [
       "Базовий розбір сфери особистого життя ",
     ],
     price: "2200",
+    details: "Текстовий PDF або голосовий розбір",
   },
   {
     name: "Поглиблений",
@@ -99,6 +120,7 @@ const items = [
       "Вектор розвитку",
     ],
     price: "3500",
+    details: "Текстовий PDF або голосовий розбір",
   },
   {
     name: "Тематичний",
@@ -113,6 +135,7 @@ const items = [
       "Рекомендації щодо проживання",
     ],
     price: "2000",
+    details: "Текстовий PDF або голосовий розбір",
   },
   {
     name: "Синастрія",
@@ -128,11 +151,54 @@ const items = [
       "Кармічний підтекст",
     ],
     price: "3000",
+    details: "Текстовий PDF або голосовий розбір",
   },
 ]
 
+const items2 = [
+  {
+    name: "Річний",
+    subtitle: "Ваш персональний рік: ключові події та періоди",
+    descr:
+      "Розбір допомагає зрозуміти, як буде розвиватися рік і куди краще направляти свою енергію.",
+    list: [
+      "Аналіз соляра та транзитів протягом року",
+      "Ключові теми року",
+      "Важливі періоди та події",
+      "Рекомендації щодо дій",
+    ],
+    price: "2500",
+    details: "PDF + голосовий коментар",
+  },
+  {
+    name: "Довгостроковий",
+    subtitle: "Аналіз ключових сфер життя на 3–5 років",
+    descr:
+      "Глибокий розбір для тих, хто хоче бачити своє життя на кілька кроків наперед.",
+    list: [
+      "Особисте життя",
+      "Кар’єра та фінанси",
+      "Переїзди / зміни",
+      "Ключові періоди та повороти",
+      "Аналіз через транзити, дирекції та соляр",
+    ],
+    price: "5000",
+    details: "Детальний PDF + голосовий розбір",
+  },
+]
+
+const activeMainTab = ref(0)
 const activeTab = ref(0)
 const { isDesktop } = useViewport()
+
+const currentItems = computed(() =>
+  activeMainTab.value === 0 ? items : items2
+)
+
+const setMainTab = (i: number) => {
+  activeMainTab.value = i
+  activeTab.value = 0 // при переключенні показуємо перший таб
+}
 
 const setTab = (i: number) => {
   activeTab.value = i
@@ -186,8 +252,17 @@ const setTab = (i: number) => {
     margin-bottom: 0.625rem;
   }
 }
-.title2 {
+.main-tab {
   opacity: 0.35;
+  transition: all 0.3s ease;
+}
+.main-tab.active {
+  opacity: 1;
+}
+@include hover {
+  .main-tab:hover {
+    opacity: 1;
+  }
 }
 .title1,
 .title2 {
@@ -209,7 +284,7 @@ const setTab = (i: number) => {
   grid-template-columns: 19.8125rem 1fr;
   gap: 7.125rem;
   align-items: flex-end;
-  margin-top: -1.5rem;
+  margin-top: -1rem;
   @include mobile {
     display: flex;
     flex-direction: column;
